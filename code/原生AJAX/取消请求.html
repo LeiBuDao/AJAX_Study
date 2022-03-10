@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取消请求</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: solid 1px red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>发送请求</button>
+    <button>取消请求</button>
+
+    <script>
+        const btns = document.querySelectorAll('button');
+        console.log(btns);
+        let xhr = null;
+        btns[0].onclick = function () {
+            xhr = new XMLHttpRequest();
+            xhr.open('GET','http://127.0.0.1:8000/timeout');
+            console.log(1);
+            //3.发送
+            xhr.send(null);
+        }
+
+        btns[1].onclick = function (){
+            xhr.abort();
+        }
+    </script>
+</body>
+
+</html>
