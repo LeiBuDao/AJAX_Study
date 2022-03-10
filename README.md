@@ -1,7 +1,4 @@
-
-
 # 三小时AJAX从入门到精通
-
 AJAX学习的笔记，主要环境为Node.js
 
 建议搭配视频食用：[三小时AJAX从入门到精通](https://www.bilibili.com/video/BV1WC4y1b78y)
@@ -22,18 +19,15 @@ AJAX学习的笔记，主要环境为Node.js
 
 - XML：被设计用来传输和存储数据
 
-- XML和HTML类似，不同点：HTML中都是预定义标签，XML中没有预定义标签，全是自定义标签，用来表示一些数据
+- XML和HTML类似，不同点：HTML中都是预定义标签，XML中没有预定义标签，全是自定义标签，用来表示一些数据.比如说我有一个学生数据：name = “孙悟空” ; age = 18 ; gender = “男” ;用XML 表示：
 
-  - 比如说我有一个学生数据：name = “孙悟空” ; age = 18 ; gender = “男” ;
-    用XML 表示：
-
-    ```js
-    <student>
-    	<name>孙悟空</name>
-    	<age>18</age>
-    	<gender>男</gender>
-    </student>
-    ```
+  ```html
+  <student>
+    <name>孙悟空</name>
+    <age>18</age>
+    <gender>男</gender>
+  </student>
+  ```
 
 - 现在已被JSON取代
 
@@ -45,12 +39,12 @@ AJAX学习的笔记，主要环境为Node.js
 
 ### 1.3、 AJAX 的特点
 
-#### 1.3.1 AJAX的优点
+#### 1.3.1、AJAX的优点
 
 - 可以无刷新页面与服务端进行通信
 - 允许你根据用户事件来更新部分页面内容
 
-#### 1.3.2 AJAX 的缺点
+#### 1.3.2、AJAX 的缺点
 
 - 没有浏览历史，不能回退
 - 存在跨域问题（同源）
@@ -159,28 +153,24 @@ username=tom&pwd=123
 
 ### 2.6、常见的响应状态码 ###
 
-```
-200 OK ：请求成功。一般用于GET 与POST 请求
-201 Created ：已创建。成功请求并创建了新的资源
-401 Unauthorized ：未授权/请求要求用户的身份认证
-404 Not Found ：服务器无法根据客户端的请求找到资源
-500 Internal Server Error ：服务器内部错误，无法完成请求
-```
+`200 OK `：请求成功。一般用于GET 与POST 请求
+`201 Created` ：已创建。成功请求并创建了新的资源
+`401 Unauthorized` ：未授权/请求要求用户的身份认证
+`404 Not Found` ：服务器无法根据客户端的请求找到资源
+`500 Internal Server Error` ：服务器内部错误，无法完成请求
 
 
 
 ### 2.7、不同类型的请求及其作用 ###
 
-```
-GET: 从服务器端读取数据（查）
-POST: 向服务器端添加新数据 （增）
-PUT: 更新服务器端已经数据 （改）
-DELETE: 删除服务器端数据 （删）
-```
+`GET`: 从服务器端读取数据（查）
+`POST`: 向服务器端添加新数据 （增）
+`PUT`: 更新服务器端已经数据 （改）
+`DELETE`: 删除服务器端数据 （删）
 
 
 
-### 2.3.8、API 的分类 ###
+### 2.8、API 的分类 ###
 1. REST API: restful （Representational State Transfer (资源)表现层状态转化）
 
    (1) 发送请求进行CRUD 哪个操作由请求方式来决定
@@ -218,27 +208,27 @@ DELETE: 删除服务器端数据 （删）
 
 ### 3.0 、准备工作
 
-#### 3.0.1 安装node.js
+#### 3.0.1、安装node.js
 
 http://nodejs.cn/
 
 
 
-#### 3.0.2 安装express（服务端框架）
+#### 3.0.2、安装express（服务端框架）
 
 [https://www.expressjs.com.cn/](https://www.expressjs.com.cn/)
 
 1. 初始化环境
 
-   ```c
-   npm init --yes
-   ```
+```c
+npm init --yes
+```
 
 2. 下载express包
 
-   ```c
-   npm install express --save
-   ```
+```c
+npm install express --save
+```
 
 3. 编写js代码
 
@@ -261,16 +251,15 @@ app.get('/', (request, response) => {
 app.listen(8000, () => {
   console.log("服务已经启动, 8000 端口监听中...");
  })
-
 ```
 
 4. 运行js程序
 
-```
+```c
 node express.js
 ```
 
-  5.打开网页显示页面
+5. 打开网页显示页面
 
 ![](https://raw.githubusercontent.com/LeiBuDao/AJAX/main/image/2.png)
 
@@ -280,7 +269,7 @@ node express.js
 
 
 
-#### 3.0.3 安装nodemon自动重启工具
+#### 3.0.3、安装nodemon自动重启工具
 
 文件内容有修改自动重新启动服务:[https://www.npmjs.com/package/nodemon](https://www.npmjs.com/package/nodemon)
 
@@ -308,33 +297,30 @@ ndoemon server.js
 
 ### 3.2 、核心对象使用步骤
 
-#### 3.2.1 创建XMLHttpRequest 对象
+#### 3.2.1、创建XMLHttpRequest 对象
 
-```
+```html
 var xhr = new XMLHttpRequest();
-
 ```
 
-#### 3.2.2 设置请求信息（请求方法和url）
+#### 3.2.2、设置请求信息（请求方法和url）
 
-```
+```js
 // 请求方式
 xhr.open(method, url);
 //可以设置请求头，一般不设置
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
 ```
 
-#### 3.2.3 发送请求
+#### 3.2.3、发送请求
 
-```
+```js
 xhr.send(body) //get请求不传 body 参数，只有post请求使用
-
 ```
 
-#### 3.2.4 接收响应（事件绑定，处理服务端返回的结果）
+#### 3.2.4、接收响应（事件绑定，处理服务端返回的结果）
 
-```
+```js
 //xhr.responseXML 接收 xml格式 的响应数据
 //xhr.responseText 接收 文本格式 的响应数据
 xhr.onreadystatechange = function (){
@@ -344,14 +330,13 @@ xhr.onreadystatechange = function (){
 		console.log(text);
 	}
 }
-
 ```
 
 
 
 ### 3.3 、使用案例
 
-#### 3.3.1 GET 请求
+#### 3.3.1、GET 请求
 
 创建两个文件，浏览器端使用的html文件和服务器端使用的js文件
 
@@ -378,12 +363,11 @@ app.get('/server', (request, response) => {
 app.listen(8000, () => {
   console.log("服务已经启动, 8000 端口监听中...");
  })
-
 ```
 
 启动服务
 
-```
+```c
 node server.js
 ```
 
@@ -444,7 +428,6 @@ node server.js
   </script>
 </body>
 </html>
-
 ```
 
 ![](https://raw.githubusercontent.com/LeiBuDao/AJAX/main/image/5.gif)
@@ -453,7 +436,7 @@ node server.js
 
 设置url参数
 
-```html
+```js
 xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b=200&c=300');
 ```
 
@@ -461,7 +444,7 @@ xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b=200&c=300');
 
 
 
-#### 3.3.2 POST请求
+#### 3.3.2、POST请求
 
 鼠标放到div中，发post请求，将响应体放在div中呈现
 
@@ -474,7 +457,6 @@ app.post('/server', (request, response) => {
   // 设置响应体
   response.send("Hello Ajax POST");
 });
-
 ```
 
 post.html
@@ -522,22 +504,19 @@ post.html
   </script>
 </body>
 </html>
-
 ```
 
-```html
+```js
 // 设置请求体内容的类型
 xhr.setRequesHeader('Content-Type','application/x-www-from-urlencoded');
 // 自定义头信息
 xhr.setRequesHeader('name', 'ykyk');
-
 ```
 
 server.js中设置响应头允许自定义请求头 post改成all
 
 ```js
 response.setHeader('Access-Control-Allow-Header','*');
-
 ```
 
 
@@ -559,7 +538,6 @@ app.all('/json-server', (request, response) => {
   // 设置响应体
   response.send(str);
 });
-
 ```
 
 ```html
@@ -609,14 +587,13 @@ app.all('/json-server', (request, response) => {
   </script>
 </body>
 </html>
-
 ```
 
 
 
 ### 3.5 、请求超时与网络异常
 
-```html
+```js
 // 超时设置 （2秒）
 xhr.timeout = 2000;
 // 超时回调
@@ -627,12 +604,11 @@ xhr.ontimeout = function(){
 xhr.onerror = function(){
 	alert('网络异常，请稍后重试')
 }
-
 ```
 
 ### 3.6 、取消请求
 
-```
+```js
 // 手动取消
 xhr.abort()
 ```
@@ -647,7 +623,7 @@ xhr.abort()
 
 **问题**：在一些浏览器中(IE),由于缓存机制的存在，ajax 只会发送的第一次请求，剩余多次请求不会在发送给浏览器而是直接加载缓存中的数据。**解决方式**：浏览器的缓存是根据url 地址来记录的，所以我们只需要修改url 地址即可避免缓存问题
 
-```html
+```js
 xhr.open("get","/testAJAX?t="+Date.now());
 ```
 
@@ -658,11 +634,11 @@ xhr.open("get","/testAJAX?t="+Date.now());
 `xhr.readyState` 可以用来查看请求当前的状态
  https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/readyState
 
-- 0: 表示XMLHttpRequest 实例已经生成，但是open()方法还没有被调用
-- 1: 表示send()方法还没有被调用，仍然可以使用setRequestHeader()，设定HTTP请求的头信息
-- 2: 表示send()方法已经执行，并且头信息和状态码已经收到
-- 3: 表示正在接收服务器传来的body 部分的数据
-- 4: 表示服务器数据已经完全接收，或者本次接收已经失败了
+- `0`: 表示XMLHttpRequest 实例已经生成，但是open()方法还没有被调用
+- `1`:表示send()方法还没有被调用，仍然可以使用setRequestHeader()，设定HTTP请求的头信息
+- `2`: 表示send()方法已经执行，并且头信息和状态码已经收到
+- `3`: 表示正在接收服务器传来的body 部分的数据
+- `4`: 表示服务器数据已经完全接收，或者本次接收已经失败了
 
 
 
@@ -691,33 +667,33 @@ xhr.open("get","/testAJAX?t="+Date.now());
 
 ### 4.1 、get 请求
 
-```
+```js
 $.get(url, [data], [callback], [type])
 ```
 
-- url:请求的URL 地址
-- data:请求携带的参数
-- callback:载入成功时回调函数
-- type:设置返回内容格式，xml, html, script, json, text, _default
+- `url:`请求的URL 地址
+- `data:`请求携带的参数
+- `callback:`载入成功时回调函数
+- `type:`设置返回内容格式，xml, html, script, json, text, _default
 
 
 
 ### 4.2 、post 请求
 
-```
+```js
 $.post(url, [data], [callback], [type])
 ```
 
-- url:请求的URL 地址
-- data:请求携带的参数
-- callback:载入成功时回调函数
-- type:设置返回内容格式，xml, html, script, json, text, _default
+- `url:`请求的URL 地址
+- `data:`请求携带的参数
+- `callback:`载入成功时回调函数
+- `type:`设置返回内容格式，xml, html, script, json, text, _default
 
 
 
-### 4.3 通用方法
+### 4.3、通用方法
 
-```html
+```js
 $.ajax({
 	// url
 	url: 'http://127.0.0.1:8000/jquery-server',
@@ -739,7 +715,6 @@ $.ajax({
 		d: 400
 	}
 })
-
 ```
 
 
@@ -766,7 +741,7 @@ $.ajax({
 
 ### 5.2 、如何解决跨域
 
-#### 5.2.1 JSONP
+#### 5.2.1、JSONP
 
 1. JSONP是什么
 
@@ -850,12 +825,11 @@ $.ajax({
    		</script>
    </body>
    </html>
-   
    ```
 
    
 
-### 5.2.2 CORS
+### 5.2.2、CORS
 
 推荐阅读：
 
@@ -884,3 +858,4 @@ $.ajax({
    ```
    
    
+
