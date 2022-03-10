@@ -70,7 +70,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Overview
 
 ### 2.2、HTTP 请求交互的基本过程 ###
 
-![](\image\1.png)
+![](https://raw.githubusercontent.com/LeiBuDao/AJAX/main/image/1.png)
 
 1. 前后应用从浏览器端向服务器发送HTTP 请求(请求报文)
 2. 后台服务器接收到请求后, 调度服务器应用处理请求, 向浏览器端返回HTTP响应(响应报文)
@@ -272,11 +272,11 @@ node express.js
 
   5.打开网页显示页面
 
-![](\image\2.png)
+![](https://raw.githubusercontent.com/LeiBuDao/AJAX/main/image/2.png)
 
 6. 调试程序可以查看请求和响应 
 
-![](\image\3.png)
+![](https://raw.githubusercontent.com/LeiBuDao/AJAX/main/image/3.png)
 
 
 
@@ -355,7 +355,7 @@ xhr.onreadystatechange = function (){
 
 创建两个文件，浏览器端使用的html文件和服务器端使用的js文件
 
-![](\image\4.png)
+![](https://raw.githubusercontent.com/LeiBuDao/AJAX/main/image/4.png)
 
 服务器端 server.js
 
@@ -447,7 +447,7 @@ node server.js
 
 ```
 
-![](\image\5.gif)
+![](https://raw.githubusercontent.com/LeiBuDao/AJAX/main/image/5.gif)
 
 
 
@@ -457,7 +457,7 @@ node server.js
 xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b=200&c=300');
 ```
 
-![](\image\6.png)
+![](https://raw.githubusercontent.com/LeiBuDao/AJAX/main/image/6.png)
 
 
 
