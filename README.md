@@ -748,8 +748,9 @@ $.ajax({
 
 ## 第五章 跨域
 
-推荐阅读：[前端跨域策略实践](https://segmentfault.com/a/1190000015450909)
-[不要再问我跨域问题了](https://segmentfault.com/a/1190000015597029)
+推荐阅读：
+- [前端跨域策略实践](https://segmentfault.com/a/1190000015450909)
+- [不要再问我跨域问题了](https://segmentfault.com/a/1190000015597029)
 ### 5.1 、同源策略
 
 - 同源策略（Same-Origin Policy）最早由 Netscape 公司提出，是浏览器的一种安全策略。
