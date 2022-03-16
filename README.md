@@ -877,4 +877,3 @@ $.ajax({
 >    	res.set("Access-Control-Allow-Origin","*");
 >    });
 >    ```
->    主要是服务端的设置：
